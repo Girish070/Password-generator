@@ -26,11 +26,11 @@ function App() {
 
     }, [length, numberAllowed, charAllowed,])
 
-    const copyPassword = useCallback(()=>{
+    const copyPassword = useCallback(() => {
         passwordRef.current?.select()
-        passwordRef.current.setSelectionRange(0,4);
-window.navigator.clipboard.writeText(password)
-    },[password])
+        //        passwordRef.current.setSelectionRange(0,4);
+        window.navigator.clipboard.writeText(password)
+    }, [password])
 
     useEffect(() => {
         passwordGenerator()
@@ -47,7 +47,7 @@ window.navigator.clipboard.writeText(password)
                         className={'outline-none w-full py-1 px-3'}
                         placeholder={'Password'}
                         readOnly
-                           ref={passwordRef}
+                        ref={passwordRef}
                     />
                     <button onClick={copyPassword} className="outline-none bg-blue-700 text-white
              px-3 py-0.5 shrink-0">Copy</button>
